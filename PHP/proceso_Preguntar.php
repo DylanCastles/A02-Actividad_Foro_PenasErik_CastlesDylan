@@ -29,7 +29,7 @@ try {
     $stmt->execute();
 
 
-    header("Location: ../PAGES/index.php");
+    header("Location: ../PAGES/index.php"); 
     exit();
 
 } catch (PDOException $e) {

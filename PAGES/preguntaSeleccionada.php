@@ -17,7 +17,7 @@ session_start();
 <body>
     <div id="contenedorPagina">
         <div id="header">
-            <img src="../img/logo.png" id="logo">
+            <a href="./index.php" id="logo"><img src="../img/logo.png" id="logoFoto"></a>
             <div id="contenedorOpcionesHeader">
                 <div id="filtrosBuscador">
                     <img src="../img/buscador.png" alt="" id="logoBuscador">
@@ -41,6 +41,8 @@ session_start();
         </div>
         <div id="bodyPagina">
             <nav id="menu">
+                <button class="botonMenuSeleccionado"><a class="botonMenuInterior" href="./index.php">Pagina principal</a></button>
+                <button class="botonMenuPyR"><a class="botonMenuInterior" href="./preguntasUser.php">Tus preguntas y respuestas</a></button>
             </nav>
 
             <div id="contenido">
@@ -83,7 +85,7 @@ session_start();
             
                     // Comprobar si hay resultados
                     if ($stmt2->rowCount() < 1) {
-                        echo "No se han encontrado preguntas";
+                        echo "No se han encontrado respuestas";
                     } else {
                         // Recorrer los resultados con un bucle
                         foreach ($stmt2 as $fila) {

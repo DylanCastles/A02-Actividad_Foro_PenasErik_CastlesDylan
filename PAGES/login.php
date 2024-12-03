@@ -17,7 +17,7 @@ include_once "../PHP/connect.php";
 
     <!-- Formulario de Login -->
     <div class="login-form container-sm">
-        <div id="contenedorLogoModal"><img src="../img/logo.png" id="logo"></div>
+        <div id="contenedorLogoModal"><a href="./index.php" id="logo"><img src="../img/logo.png" id="logoFoto"></a></div>
         <form action="../PHP/proceso_login.php" method="post">
             <div class="mb-3">
                 <label for="email" class="form-label">Correo Electrónico</label>

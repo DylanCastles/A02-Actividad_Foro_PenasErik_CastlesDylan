@@ -16,9 +16,12 @@ session_start();
             <img src="../img/logo.png" id="logo">
             <div id="contenedorOpcionesHeader">
                 <div id="filtrosBuscador">
-                    <img src="../img/buscador.png" alt="" id="logoBuscador">
-                    <input type="text" name="" id="buscador" placeholder="Buscar...">
+                    <form action="" method="get">
+                        <img src="../img/buscador.png" alt="" id="logoBuscador">
+                        <input type="text" name="filtro" id="buscador" placeholder="Buscar...">
+                    </form>
                 </div>
+
                 <?php
                 if(isset($_SESSION['usuarioConectado'])){
                     ?>
@@ -37,6 +40,8 @@ session_start();
         </div>
         <div id="bodyPagina">
             <nav id="menu">
+                <button class="botonMenuSeleccionado"><a class="botonMenuInterior" href="./index.php">Pagina principal</a></button>
+                <button class="botonMenuPyR"><a class="botonMenuInterior" href="./preguntasUser.php">Tus preguntas y respuestas</a></button>
             </nav>
 
             <div id="contenido">
@@ -46,6 +51,9 @@ session_start();
                 </div>
                  <?php
                 try {
+                    if (condition) {
+                        
+                    }
                     $sqlPreguntas = "SELECT id_post, titulo_post, contenido_post, fecha_post, user_post FROM tbl_post WHERE ref_post IS NULL;";
                     // Preparar y ejecutar la consulta
                     $stmt = $pdo->prepare($sqlPreguntas);
@@ -60,6 +68,7 @@ session_start();
                             echo "<a id='contenedorPregunta' href='./preguntaSeleccionada.php?pregunta=" . htmlspecialchars($fila["id_post"]) . "'><div id='interiorContenedorPregunta'>";
                             echo "<strong>Usuario:</strong> " . htmlspecialchars($fila["user_post"]) . "<br>";
                             echo "<h3><strong>Titulo:</strong> " . htmlspecialchars($fila["titulo_post"]) . "</h3><br>";
+                            echo "<p><strong>Contenido:</strong> ...</p><br>";
                             echo "<strong>Fecha:</strong> " . htmlspecialchars($fila["fecha_post"]) . "<br>";
                             echo "</div></a>";
                         }

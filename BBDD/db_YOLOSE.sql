@@ -27,12 +27,12 @@ ALTER TABLE tbl_POST
 ADD CONSTRAINT FK_POST_USER
 FOREIGN KEY(user_post) REFERENCES tbl_USERS(id_user);
 
-INSERT INTO tbl_USERS (id_user, nombre_user, apellido_user, email_user, desc_user, pwd_user) VALUES
-('user001', 'Juan', 'Pérez', 'juan.perez@example.com', 'Amante de la tecnología', '$2b$10$abcdefghijABCDEFGHIJabcdefghijABCDEFGHIJabcdefghijAB'),
-('user002', 'María', 'García', 'maria.garcia@example.com', 'Apasionada por el arte', '$2b$10$klmnopqrstKLMNOPQRSTklmnopqrstKLMNOPQRSTklmnopqrstKL'),
-('user003', 'Carlos', 'López', 'carlos.lopez@example.com', 'Experto en programación', '$2b$10$uvwxyzABCDUVWXYZABCDuvwxyzABCDUVWXYZABCDuvwxyzABCDUV'),
-('user004', 'Ana', 'Martínez', 'ana.martinez@example.com', 'Fan de los videojuegos', '$2b$10$QRSTUVWXQRSTUVWXqrstuvwxQRSTUVWXqrstuvwxQRSTUVWXQR'),
-('user005', 'Pedro', 'Hernández', 'pedro.hernandez@example.com', 'Curioso y creativo', '$2b$10$ABCDEFGHABCDEFGHabcdEFGHABCDEFGHabcdEFGHABCDEFGHab');
+INSERT INTO tbl_USERS (id_user, nombre_user, apellido_user, email_user, desc_user, pwd_user) VALUES -- CONTRASEÑA QWEqwe123
+('user001', 'Juan', 'Pérez', 'juan.perez@example.com', 'Amante de la tecnología', '$2b$12$tk/4lrZlKZbyxgFxNDWTfOrMlRdhcZLCsC41.HUJ6FDWGUmLRGnIa'),
+('user002', 'María', 'García', 'maria.garcia@example.com', 'Apasionada por el arte', '$2b$12$tk/4lrZlKZbyxgFxNDWTfOrMlRdhcZLCsC41.HUJ6FDWGUmLRGnIa'),
+('user003', 'Carlos', 'López', 'carlos.lopez@example.com', 'Experto en programación', '$2b$12$tk/4lrZlKZbyxgFxNDWTfOrMlRdhcZLCsC41.HUJ6FDWGUmLRGnIa'),
+('user004', 'Ana', 'Martínez', 'ana.martinez@example.com', 'Fan de los videojuegos', '$2b$12$tk/4lrZlKZbyxgFxNDWTfOrMlRdhcZLCsC41.HUJ6FDWGUmLRGnIa'),
+('user005', 'Pedro', 'Hernández', 'pedro.hernandez@example.com', 'Curioso y creativo', '$2b$12$tk/4lrZlKZbyxgFxNDWTfOrMlRdhcZLCsC41.HUJ6FDWGUmLRGnIa');
 
 INSERT INTO tbl_POST (titulo_post, contenido_post, fecha_post, user_post, ref_post) VALUES
 ('Lenguaje de Programación', '¿Cuál es el mejor lenguaje de programación para empezar?', '2024-11-21 10:00:00', 'user003', NULL),

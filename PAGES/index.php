@@ -1,5 +1,6 @@
 <?php
 include_once "../PHP/connect.php";
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,23 +19,34 @@ include_once "../PHP/connect.php";
                     <img src="../img/buscador.png" alt="" id="logoBuscador">
                     <input type="text" name="" id="buscador" placeholder="Buscar...">
                 </div>
-                <button class="botonesHeader" id="botonLogIn">Log In</button>
-                <button class="botonesHeader" id="botonReg">Register</button>
+                <?php
+                if(isset($_SESSION['usuarioConectado'])){
+                    ?>
+                    <p><strong>Usuario conectado:</strong><br><?php echo $_SESSION['usuarioConectado']; ?></p>
+                    <button class="botonesHeader" id="botonLogOut"><a class="botonLogInA" href="../PHP/proceso_cerrarSesion.php">Cerrar Sesión</a></button>
+                    <?php
+                } else {
+                    ?>
+                    <button class="botonesHeader" id="botonLogIn"><a class="botonLogInA" href="./login.php">Log In</a></button>
+                    
+                    <button class="botonesHeader" id="botonReg"><a class="botonLogInA" href="./registrarse.php">Register</a></button>
+                    <?php
+                }
+                ?>
             </div>
         </div>
         <div id="bodyPagina">
             <nav id="menu">
-
             </nav>
+
             <div id="contenido">
                 <div id="headerContenido">
                     <h1>PAGINA PRINCIPAL</h1>
-                    <button id="botonPreguntar">Preguntar</button>
+                    <button id="botonPreguntar"><a class="botonLogInA" href="./preguntar.php">Preguntar</a></button>
                 </div>
-                <!-- LO SIGUIENTE SE HARÁ CON UN BUCLE PARA QUE LO HAGA POR CADA PREGUNTA -->
                  <?php
                 try {
-                    $sqlPreguntas = "SELECT titulo_post, contenido_post, fecha_post, user_post FROM tbl_post;";
+                    $sqlPreguntas = "SELECT id_post, titulo_post, contenido_post, fecha_post, user_post FROM tbl_post WHERE ref_post IS NULL;";
                     // Preparar y ejecutar la consulta
                     $stmt = $pdo->prepare($sqlPreguntas);
                     $stmt->execute();
@@ -45,11 +57,11 @@ include_once "../PHP/connect.php";
                     } else {
                         // Recorrer los resultados con un bucle
                         foreach ($stmt as $fila) {
-                            echo "<div id='contenedorPregunta'>";
+                            echo "<a id='contenedorPregunta' href='./preguntaSeleccionada.php?pregunta=" . htmlspecialchars($fila["id_post"]) . "'><div id='interiorContenedorPregunta'>";
                             echo "<strong>Usuario:</strong> " . htmlspecialchars($fila["user_post"]) . "<br>";
                             echo "<h3><strong>Titulo:</strong> " . htmlspecialchars($fila["titulo_post"]) . "</h3><br>";
                             echo "<strong>Fecha:</strong> " . htmlspecialchars($fila["fecha_post"]) . "<br>";
-                            echo "</div>";
+                            echo "</div></a>";
                         }
                     }
                     // Cerrar conexión (opcional en PDO, se hace automáticamente al final del script)

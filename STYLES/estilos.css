@@ -122,6 +122,30 @@ body {
     color: #215F9A;
     font-size: larger;
 }
+
+#botonLogOut {
+    border-radius: 8px;
+    border: 1.5px solid #9a2121;
+    background-color: rgb(149, 176, 222);
+    color: #9a2121;
+    font-size: smaller;
+}
+
+#botonLogOut:hover {
+    border: none;
+    background-color: #9a2121;
+    color: rgb(149, 176, 222);
+}
+
+
+.botonLogInA {
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding-top: 5px;
+}
 #botonPreguntar {
     border-radius: 8px;
     background-color: #215F9A;
@@ -177,4 +201,55 @@ body {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
     padding: 5px;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+#contenedorPregunta:hover {
+    background-color: rgb(97, 97, 97);
+}
+
+#interiorContenedorPregunta {
+    width:100%;
+    height:100%;
+    text-decoration: none;
+}
+.body-login {
+    background: url('https://via.placeholder.com/1920x1080') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+}
+
+.login-form {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.login-form .form-control {
+    border-radius: 20px;
+}
+
+.login-form .btn {
+    border-radius: 20px;
+}
+#contenedorLogoModal{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    margin: 0;
 }

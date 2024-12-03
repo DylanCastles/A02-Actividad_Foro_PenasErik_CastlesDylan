@@ -6,16 +6,16 @@ if (!isset($_SESSION['usuarioConectado'])) {
     exit;
 }
 
-if (!isset($_POST["submitPreguntar"])) {
-    header("Location: ../PAGES/index.php");
+if (!isset($_POST["submitResponder"])) {
+    header("Location: ../PAGES/login.php");
 }
 
 include_once "../PHP/connect.php";
 
-$titulo = htmlspecialchars($_POST["titulo"]);
 $contenido = htmlspecialchars($_POST["contenido"]);
 $fecha = date('Y-m-d H:i:s');
-$ref = NULL;
+$ref = htmlspecialchars($_POST["pregunta"]);
+$titulo = NULL;
 
 try {
     $insertPregunta = "INSERT INTO tbl_post (titulo_post, contenido_post, fecha_post, user_post, ref_post) VALUES (:titulo_post, :contenido_post, :fecha_post, :user_post, :ref_post)";
@@ -30,7 +30,7 @@ try {
     $stmt->execute();
 
 
-    header("Location: ../PAGES/index.php"); 
+    header("Location: ../PAGES/preguntaSeleccionada.php?pregunta=$ref"); 
     exit();
 
 } catch (PDOException $e) {

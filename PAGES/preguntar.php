@@ -15,34 +15,9 @@ if (!isset($_SESSION['usuarioConectado'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Pregunta - Foro</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        /* Fondo oscuro y opaco */
-        .background-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-        .container {
-            position: relative;
-            z-index: 10;
-        }
-        /* Estilo del formulario */
-        .form-container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-        }
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="../STYLES/estilos.css">
 </head>
-<body class="bg-light">
+<body class="bg-light" id="bodyEditar">
     <div class="background-overlay"></div>
 
     <div class="container mt-5">
@@ -55,8 +30,8 @@ if (!isset($_SESSION['usuarioConectado'])) {
                         <input type="text" class="form-control" id="titulo" name="titulo" required>
                     </div>
                     <div class="mb-3">
-                        <label for="contenido" class="form-label">Contenido de la Pregunta</label>
-                        <textarea class="form-control" id="contenido" name="contenido" rows="5" required></textarea>
+                        <label for="contenidoForm" class="form-label">Contenido de la Pregunta</label>
+                        <textarea class="form-control" id="contenidoForm" name="contenido" rows="5" required></textarea>
                     </div>
                     <button type="submit" name="submitPreguntar" class="btn btn-primary w-100">Publicar Pregunta</button>
                 </form>
